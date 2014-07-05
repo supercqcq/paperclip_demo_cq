@@ -1,6 +1,6 @@
 <div class="user" id="<%= user.id %>">
     <div class="front">
-        <%= link_to user, class: 'pic-link' do %>
+         <%= link_to user, class: 'pic-link' do %>
             <%= image_tag user.avatar.url(:square) %>
         <% end %>
     </div>
@@ -13,3 +13,17 @@
         </div>
     </div>
 </div>
+
+  <!-- <div class="front"> -->
+ <!-- <div class="user" id="<%= user.id %>">
+
+    <span class="user-name">name: <%= user.name %></span>
+
+    <%= link_to user, class: 'pic-link' do %>
+        avatar: <%= image_tag user.avatar.url(:medium) %>
+    <% end %>
+
+    <%= link_to 'Show', user %>
+    <%= link_to 'Edit', edit_user_path(user) %>
+    <%= link_to 'Delete', user, data: {confirm: 'Are you sure?'}, method: :delete, class: 'destroy' %>
+</div> -->

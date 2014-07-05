@@ -32,15 +32,15 @@ class UsersController < ApplicationController
     end
 
     def update # 更新信息
-        # respond_to do |format|
-        #     if @user.update(user_params)
-        #         format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        #         format.json { head :no_content }
-        #     else
-        #         format.html { render action: 'edit' }
-        #         format.json { render json: @user.errors, status: :unprocessable_entity }
-        #     end
-        # end
+        respond_to do |format|
+            if @user.update(user_params)
+                format.html { redirect_to @user, notice: 'User was successfully updated.' }
+                format.json { head :no_content }
+            else
+                format.html { render action: 'edit' }
+                format.json { render json: @user.errors, status: :unprocessable_entity }
+            end
+        end
     end
 
     def destroy # 删除
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
         end
 
         def user_params
-            params.require(:user).permit(:avatar, :name) # 只允许传入 avatar 和 name
+            params.require(:user).permit(:name, :avatar) # 只允许传入 avatar 和 name
         end
 
 end
