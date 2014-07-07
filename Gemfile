@@ -39,3 +39,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
+
+group :development, :test do
+    gem 'rspec', '~> 3.0.0.rc1'
+    gem 'rspec-rails', '~> 3.0.0.beta'
+    gem "byebug"
+end
+
+gem 'sinatra'
