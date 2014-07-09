@@ -1,3 +1,33 @@
 <h1>Adding a new user</h1>
 
 <%= render 'form' %> <!-- 调用 _form.html.erb -->
+
+<input type="button" value="Create User with Sinatra API" id="hello"></input>
+<br>
+<script language="javascript"> // 一定要用 js，动态触发
+(function() {
+  $(document).ready(function() {
+    return $('#hello').bind('click', function() {
+        if(!$('#user_name').val()){
+          alert("Name is null");
+          return false;
+        } // name为空时，给出提示
+        $.ajax({
+          url: '/api/v1/user/create',
+          type: "post",
+          data: $("#new_user").serialize(),
+          cache: false,
+          dataType: 'json',
+          timeout: 10000,
+          success: function(data, textStatus){
+            location.href="/users/"+data['id']
+          }
+        });
+      return; 
+    });
+  });
+
+}).call(this);
+</script>
+
+<%= link_to 'Back', users_path %>
